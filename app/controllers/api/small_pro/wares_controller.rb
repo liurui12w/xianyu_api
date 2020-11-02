@@ -1,4 +1,5 @@
 class Api::SmallPro::WaresController < ApplicationController
+  before_action :set_record, only: [:show, :update, :destroy]
 
   def index
     page = params[:page] || 1
@@ -13,7 +14,25 @@ class Api::SmallPro::WaresController < ApplicationController
     render_json([200, "#{message}"])
   end
 
+
+  def update
+    if @record.update!(ware_params)
+      result = [200, '修改成功']
+    else
+      result = [400, '修改失败']
+    end
+    render_json(result)
+  end
+
+
   private
+  def set_record
+    @record = Ware.find(params[:id])
+  end
+
+  def ware_params
+    params.permit(:sku_code, :sku_number, :describe, :price, :is_free, :avatar)
+  end
 
   def q_params
     if params[:q]
