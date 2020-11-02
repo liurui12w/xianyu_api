@@ -25,7 +25,6 @@ production:
   encoding: utf8
   database: xianyu_production
   pool: 5
-  username: debian-sys-maint
-  password: E77vZ7fo9PZWklke
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   timeout: 5000
-  
