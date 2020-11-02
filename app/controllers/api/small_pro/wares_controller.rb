@@ -1,5 +1,4 @@
 class Api::SmallPro::WaresController < ApplicationController
-  before_action :authenticate_internal!
 
   def index
     page = params[:page] || 1
