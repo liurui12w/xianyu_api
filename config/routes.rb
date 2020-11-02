@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     namespace :small_pro do
       resources :wares do
         collection do
-          get :s_ranking_list_list
           post :get_ware_data
         end
       end

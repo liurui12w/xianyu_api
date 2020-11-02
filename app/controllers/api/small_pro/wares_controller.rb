@@ -3,7 +3,7 @@ class Api::SmallPro::WaresController < ApplicationController
   def index
     page = params[:page] || 1
     per = params[:per] || 20
-    record = Ware.all.kept.ransack(q_params).result(distinct: true).order("created_at desc")
+    record = Ware.all.ransack(q_params).result(distinct: true).order("created_at desc")
     @record = Kaminari.paginate_array(record).page(page).per(per)
   end
 

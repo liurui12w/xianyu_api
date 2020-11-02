@@ -82,3 +82,6 @@ gem 'caxlsx_rails'
 gem 'carrierwave', '~> 2.0'
 gem "roo", "~> 2.8.0"
 gem 'figaro'
+
+gem 'kaminari' #分页
+gem 'ransack'
